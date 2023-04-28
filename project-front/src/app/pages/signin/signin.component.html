@@ -1,0 +1,54 @@
+<div>
+  <div class="col-md-8">
+    <div *ngIf="success" class="alert alert-primary alert-dismissible fade show">
+      <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+      </button>
+      <span>Signed In Successfully</span>
+    </div>
+
+    <div *ngIf="exist" class="alert alert-danger alert-dismissible fade show">
+      <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+      </button>
+      <span>Email doesn't exist</span>
+  </div>
+  <div *ngIf="bad" class="alert alert-danger alert-dismissible fade show">
+    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+    </button>
+    <span>Password Incorrect </span>
+</div>
+  <div class="col-md-8">
+    <div class="card card-user" style="width: 360px;">
+      <div class="card-header">
+        <h5 class="card-title">Sign In</h5>
+      </div>
+      <div >
+        <form #signinForm="ngForm">
+          <div class="row" style="margin-left: 10px;">
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" placeholder="Email" name="email"style="width: 300px;" autocomplete="off" required [(ngModel)]="email">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-left: 1px; width: 320px;">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" autocomplete="off" required [(ngModel)]="password" >
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-primary btn-round"[disabled]="signinForm.invalid" (click)="signin()">Sign In</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
